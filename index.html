@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Rajasri 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+    background:linear-gradient(270deg,#1e3c72,#2a5298,#6dd5fa,#ffffff);
+    background-size:600% 600%;
+    animation:gradientMove 15s ease infinite;
+    color:white;
+    text-align:center;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* FIRST PAGE */
+.section{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    font-size:60px;
+    text-shadow:0 0 20px rgba(255,255,255,0.8);
+}
+
+h2{
+    font-size:35px;
+    margin-top:10px;
+}
+
+button{
+    padding:15px 35px;
+    margin-top:30px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    background:white;
+    color:#1e3c72;
+    transition:0.4s;
+}
+
+button:hover{
+    background:#ffb6f9;
+    transform:scale(1.1);
+}
+
+/* FULLSCREEN IMAGE GALLERY */
+.gallery{
+    display:none;
+}
+
+.slide{
+    height:100vh;
+    width:100%;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    font-weight:bold;
+    text-shadow:0 0 20px black;
+}
+
+/* MESSAGE */
+#secret{
+    display:none;
+    background:rgba(0,0,0,0.6);
+    padding:40px;
+    border-radius:20px;
+    max-width:700px;
+    margin:auto;
+    font-size:22px;
+    line-height:1.6;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:25px;
+    animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+<div class="section" id="home">
+    <h1>Happy Valentine's Day 💖</h1>
+    <h2>Rajasri 💙</h2>
+    <button onclick="startMemories()">Click Here</button>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery" id="memories">
+
+    <!-- Upload these images -->
+    <div class="slide" style="background-image:url('photo1.jpg')">Our Memories 💖</div>
+    <div class="slide" style="background-image:url('photo2.jpg')"></div>
+    <div class="slide" style="background-image:url('photo3.jpg')"></div>
+    <div class="slide" style="background-image:url('photo4.jpg')"></div>
+    <div class="slide" style="background-image:url('photo5.jpg')"></div>
+
+    <div class="slide" style="background:#000;">
+        <button onclick="askPassword()">Open Special Message 💌</button>
+    </div>
+
+    <div class="slide" style="background:#111;">
+        <div id="secret">
+            Rajasri… 💙<br><br>
+
+            I love you so much di.  
+            Unna maari oru ponnu en life la kedaika  
+            naan romba kuduthu vachirukanum Ammu kutty. 🤍  
+
+            Enna situation vanthalum en kooda iru Rajasri.  
+            This year is going to be a big year for us. 💖  
+
+            Once again Happy Valentine’s Day… 💙<br><br>
+
+            <span style="font-size:28px;color:#6dd5fa;">
+            Be mine always? 💍💖
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+function startMemories(){
+    document.getElementById("home").style.display="none";
+    document.getElementById("memories").style.display="block";
+    window.scrollTo(0,0);
+}
+
+function askPassword(){
+    var pass = prompt("Enter the secret password 💖");
+
+    if(pass === "rajasri"){
+        document.getElementById("secret").style.display="block";
+    } else {
+        alert("Wrong password 💔");
+    }
+}
+
+/* Floating Hearts Animation */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+20)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},6000);
+},400);
+
+</script>
+
+</body>
+</html>
